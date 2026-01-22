@@ -1,0 +1,30 @@
+
+@import '../../../../styles/variables';
+
+.product-image-card {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-color;
+
+  .main-img {
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform $transition-speed ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: $secondary-color;
+}
+
+h1 {
+  line-height: 1.2;
+  color: #212529; // Use a variable for dark text if you want
+}

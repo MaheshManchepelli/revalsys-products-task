@@ -1,0 +1,60 @@
+<div class="container py-5">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" class="text-decoration-none">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ product()?.category }}</li>
+    </ol>
+  </nav>
+
+  @if (isLoading()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-2 text-muted">Fetching product details...</p>
+    </div>
+  } @else if (product()) {
+    <div class="row g-5">
+      <div class="col-md-6">
+        <div class="product-image-card shadow-sm bg-white rounded-4 p-4 text-center">
+          <img [src]="product()?.image" 
+               [alt]="product()?.title" 
+               class="img-fluid main-img"
+               fetchpriority="high"> </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="ps-md-4">
+          <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3 rounded-pill">
+            {{ product()?.category | uppercase }}
+          </span>
+          <h1 class="display-5 fw-bold text-dark mb-3">{{ product()?.title }}</h1>
+          
+          <div class="d-flex align-items-center mb-4">
+            <h2 class="text-success fw-bold mb-0">${{ product()?.price }}</h2>
+            <span class="ms-3 text-muted small">(Free Shipping Included)</span>
+          </div>
+
+          <hr class="my-4">
+
+          <h5 class="fw-bold mb-3">Description</h5>
+          <p class="lead text-muted lh-lg mb-5">
+            {{ product()?.description }}
+          </p>
+
+          <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+            <button class="btn btn-primary btn-lg px-5 py-3 shadow-sm rounded-3">
+              Add to Cart
+            </button>
+            <button class="btn btn-outline-secondary btn-lg px-4 py-3 rounded-3" routerLink="/">
+              Back to Catalog
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="alert alert-warning text-center">
+      <h4>Product not found.</h4>
+      <button class="btn btn-primary mt-3" routerLink="/">Return Home</button>
+    </div>
+  }
+</div>
