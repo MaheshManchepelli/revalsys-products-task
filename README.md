@@ -30,7 +30,11 @@ npm run dev
 
 # Build and Test SSR
 npm run build
+
 npm run serve:ssr:revalsys-products-task
+
+
+
 📂 Project Structure
 src/app/core: Shared services (SEO, Product) and models.
 
