@@ -1,27 +1,55 @@
-# RevalsysProductsTask
+# Revalsys Product Store (Angular 18 SSR)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+A high-performance e-commerce catalog showcasing **Angular 18** features, **Server-Side Rendering (SSR)**, and **Signals**.
 
-## Development server
+## Key Features & Architecture
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. Server-Side Rendering (SSR)
+- Fully SEO-compliant using `@angular/ssr`.
+- Dynamic metadata (Title, Description, Open Graph) updated per product via a centralized `SeoService`.
+- **Hydration:** Optimized with `provideClientHydration()` to prevent UI flickering.
 
-## Code scaffolding
+### 2. Modern Angular Patterns
+- **Signals:** Used `signal`, `computed`, and `effect` for reactive state management.
+- **Control Flow:** Utilized `@for`, `@if`, and `@defer` for modern, readable templates.
+- **@defer Blocks:** Implemented for listing cards to improve Initial Page Load speed.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 3. Styling & UI
+- **Bootstrap 5:** Responsive grid system.
+- **SCSS Variables:** Centralized theme management in `_variables.scss`.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation & Commands
 
-## Running unit tests
+# Install dependencies
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Run development server
+npm run dev
 
-## Running end-to-end tests
+# Build and Test SSR
+npm run build
+npm run serve:ssr:revalsys-products-task
+📂 Project Structure
+src/app/core: Shared services (SEO, Product) and models.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+src/app/features: Domain-specific components (Listing, Detail).
 
-## Further help
+src/styles: Theme and global styling.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 📸 Screenshots
+
+### Product Listing
+![Product Listing](./screenshots/products-listing.png)
+
+### Product Detail View
+![Product Detail](./screenshots/product-details.png)
+
+### SSR & SEO Validation
+*The screenshot below shows the page source rendered by the server, including dynamic Meta Tags for SEO.*
+![SSR Validation](./screenshots/seo-meta-content-pagesource.png)
+![Social Preview](./screenshots/social-preview.png)
+
